@@ -3,6 +3,8 @@ import copy
 from itertools import product
 
 '''
+출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
 핵심 아이디어
 1. banned_id의 *를 지운 후 순수 char만으로 이루어진 copyOfBadUser 리스트를 만든다.
 2. copyOfBadUser의 각 요소의 순수 char가 포함된 모든 user_id의 항목을 찾아서 candidate 리스트에 삽입한다.
