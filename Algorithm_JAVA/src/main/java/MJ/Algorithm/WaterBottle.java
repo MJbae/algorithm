@@ -9,12 +9,12 @@ public class WaterBottle {
         int N = scanner.nextInt();
         int K = scanner.nextInt();
         scanner.close();
+        int numOfBottlesBought = 0;
 
         // N개 만큼의 물병에 물을 1L만큼 채워넣음
         ArrayList<Integer> bottles = new ArrayList<>();
         for (int i = 0; i < N; i++) bottles.add(1);
 
-        int numOfBottlesBought = 0;
         // 물병의 수가 K 보다 작을 때까지 순회
         while (bottles.size() > K) {
             // 모든 물병에 대해 순차적으로 순회
@@ -44,7 +44,7 @@ public class WaterBottle {
 //        for(Integer bottle : bottles) System.out.print(bottle + " ");
 //        System.out.println("");
         System.out.println(numOfBottlesBought);
-
 //        for(Integer bottle : bottles) System.out.println(bottle);
     }
 }
+
