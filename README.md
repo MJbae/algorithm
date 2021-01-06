@@ -1,5 +1,5 @@
 
-# 200420_AlgorithmStudy_Python
+# 200420_Algorithm
 > 코딩테스트 대비 자료구조 및 알고리즘 학습
 
 ## 기간
