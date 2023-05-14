@@ -9,21 +9,20 @@ fun main() {
 class Solution5a {
     fun reverseVowels(s: String): String {
         val vowels = listOf('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
-        val stringMap: MutableMap<Int, Char> = mutableMapOf()
+        val charMap: MutableMap<Int, Char> = mutableMapOf()
         val result = StringBuilder(s)
 
         for (index in result.indices){
             if(result[index] in vowels){
-                stringMap[index] = result[index]
+                charMap[index] = result[index]
             }
         }
 
-        val keys = stringMap.keys.toList()
-        val valuesReverse = stringMap.values.reversed()
+        val keys = charMap.keys.toList()
+        val valuesReverse = charMap.values.reversed()
+        val reversedChar = keys.zip(valuesReverse)
 
-        for (index in keys.indices){
-            val key = keys[index]
-            val value = valuesReverse[index]
+        for ((key, value) in reversedChar){
             result[key] = value
         }
 
