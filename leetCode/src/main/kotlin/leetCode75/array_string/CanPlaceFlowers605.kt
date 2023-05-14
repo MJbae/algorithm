@@ -17,14 +17,13 @@ class Solution4a {
     private fun getPlantableFlowers(flowerbed: IntArray): Int {
         var result = 0
 
-        // array 순회 중 0인 요소 선택
         for (index in flowerbed.indices) {
-            if (flowerbed[index] == 0) {
-                // 왼쪽과 오른쪽이 모두 심을 수 있는 경우, 카운팅
-                if (isLeftEmpty(flowerbed, index) && isRightEmpty(flowerbed, index)) {
-                    flowerbed[index] = 1
-                    result++
-                }
+            if (flowerbed[index] == 0
+                && isLeftEmpty(flowerbed, index)
+                && isRightEmpty(flowerbed, index)
+            ) {
+                flowerbed[index] = 1
+                result++
             }
 
         }
@@ -32,11 +31,11 @@ class Solution4a {
         return result
     }
 
-    private fun isLeftEmpty(flowerbed: IntArray, index: Int): Boolean{
+    private fun isLeftEmpty(flowerbed: IntArray, index: Int): Boolean {
         return index == 0 || flowerbed[index - 1] == 0
     }
 
-    private fun isRightEmpty(flowerbed: IntArray, index: Int): Boolean{
+    private fun isRightEmpty(flowerbed: IntArray, index: Int): Boolean {
         return index == (flowerbed.size - 1) || flowerbed[index + 1] == 0
     }
 }
