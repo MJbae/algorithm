@@ -1,12 +1,12 @@
 package leetCode75.array_string
 
 fun main() {
-    val result = Solution2_1().gcdOfStrings("leet", "code")
+    val result = Solution2a().gcdOfStrings("leet", "code")
     println(result)
 }
 
 // Time Limit Exceeded
-class Solution2_1 {
+class Solution2a {
     fun gcdOfStrings(str1: String, str2: String): String {
 
         // get min length btw strings

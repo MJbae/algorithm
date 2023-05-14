@@ -1,12 +1,12 @@
 package leetCode75.array_string
 
 fun main() {
-    val result = SolutionBest1().mergeAlternately("abc", "pqr")
+    val result = Solution1Best().mergeAlternately("abc", "pqr")
     println(result)
 }
 
 // Time Complexity is O(max(n,m))
-class Solution1_1 {
+class Solution1a {
     fun mergeAlternately(word1: String, word2: String): String {
         var result = ""
         for (i in 0..Math.max(word1.length - 1, word2.length - 1)) {
@@ -18,7 +18,7 @@ class Solution1_1 {
     }
 }
 
-class Solution1_2 {
+class Solution1b {
     fun mergeAlternately(word1: String, word2: String): String {
         var result = ""
         var i = 0
@@ -33,7 +33,7 @@ class Solution1_2 {
     }
 }
 
-class SolutionBest1 {
+class Solution1Best {
     fun mergeAlternately(word1: String, word2: String): String {
         val result = StringBuilder()
         var i = 0
@@ -49,7 +49,7 @@ class SolutionBest1 {
     }
 }
 
-class Solution1_4 {
+class Solution1d {
     fun mergeAlternately(word1: String, word2: String): String {
         val result = StringBuilder()
         val maxIdx = Math.max(word1.length - 1, word2.length - 1)

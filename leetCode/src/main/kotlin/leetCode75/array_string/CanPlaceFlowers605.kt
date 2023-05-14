@@ -1,12 +1,12 @@
 package leetCode75.array_string
 
 fun main() {
-    val result = Solution4_1().canPlaceFlowers(flowerbed = intArrayOf(1, 0, 0, 0, 1), n = 1)
+    val result = Solution4a().canPlaceFlowers(flowerbed = intArrayOf(1, 0, 0, 0, 1), n = 1)
     println(result)
 }
 
 // Fail to satisfy testcases
-class Solution4_1 {
+class Solution4a {
     fun canPlaceFlowers(flowerbed: IntArray, n: Int): Boolean {
         if (flowerbed.isEmpty()) return false
         if (flowerbed.size == 1 && flowerbed[0] == 0) return true

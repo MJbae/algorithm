@@ -5,7 +5,7 @@ fun main() {
     println(result)
 }
 
-class Solution3_1 {
+class Solution3a {
     fun kidsWithCandies(candies: IntArray, extraCandies: Int): List<Boolean> {
         val maxCandy = candies.max()
         return candies.map { candy -> checker(candy as Int, maxCandy as Int, extraCandies as Int) }.toList()
