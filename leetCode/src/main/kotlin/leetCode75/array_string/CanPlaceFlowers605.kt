@@ -5,11 +5,9 @@ fun main() {
     println(result)
 }
 
-// Fail to satisfy testcases
 class Solution4a {
     fun canPlaceFlowers(flowerbed: IntArray, n: Int): Boolean {
         if (flowerbed.isEmpty()) return false
-        if (flowerbed.size == 1 && flowerbed[0] == 0) return true
 
         val possibleFollowers = getPlantableFlowers(flowerbed)
 
@@ -18,28 +16,50 @@ class Solution4a {
 
     private fun getPlantableFlowers(flowerbed: IntArray): Int {
         var result = 0
-        val size = flowerbed.size
-
-        if (flowerbed.size >= 3 && flowerbed[0] == 0 && flowerbed[1] == 0 && flowerbed[2] == 1) {
-            flowerbed[0] = 1
-            result++
-        }
 
         // array 순회 중 0인 요소 선택
-        for (index in 1 until (size - 1)) {
+        for (index in flowerbed.indices) {
             if (flowerbed[index] == 0) {
-                // 0인 요소의 앞뒤 요소가 1이면 집계 x
-                if (flowerbed[index - 1] == 1 || flowerbed[index + 1] == 1) {
-                    continue
+                // 왼쪽과 오른쪽이 모두 심을 수 있는 경우, 카운팅
+                if (isLeftEmpty(flowerbed, index) && isRightEmpty(flowerbed, index)) {
+                    flowerbed[index] = 1
+                    result++
                 }
-                flowerbed[index] = 1
-                result++
             }
 
         }
 
-        if (flowerbed.size >= 3 && flowerbed[size-3] == 1 && flowerbed[size-2] == 0 && flowerbed[size-1] == 0) result++
-
         return result
+    }
+
+    private fun isLeftEmpty(flowerbed: IntArray, index: Int): Boolean{
+        return index == 0 || flowerbed[index - 1] == 0
+    }
+
+    private fun isRightEmpty(flowerbed: IntArray, index: Int): Boolean{
+        return index == (flowerbed.size - 1) || flowerbed[index + 1] == 0
+    }
+}
+
+class Solution4b {
+
+    fun canPlaceFlowers(flowerbed: IntArray, n: Int): Boolean {
+
+        var cnt = 0
+
+        for (i in flowerbed.indices) {
+
+            val prev = flowerbed.getOrNull(i - 1)
+            val validPrev = prev == null || prev == 0
+            val next = flowerbed.getOrNull(i + 1)
+            val validNext = next == null || next == 0
+
+            if (validPrev && validNext && flowerbed[i] == 0) {
+                flowerbed[i] = 1
+                cnt++
+            }
+        }
+
+        return cnt >= n
     }
 }
