@@ -1,7 +1,7 @@
 package leetCode75.two_pointers
 
 fun main() {
-    val result = Solution2a().isSubsequence("aaaaaa", "bbaaaa")
+    val result = Solution2Best().isSubsequence("aaaaaa", "bbaaaa")
     println("result: $result")
 }
 
@@ -34,12 +34,12 @@ class Solution2Best {
     fun isSubsequence(s: String, t: String): Boolean {
         var sIndex = 0
         var tIndex = 0
-        while (sIndex < s.length && tIndex < t.length) {
-            if (s[sIndex] == t[tIndex]) {
-                sIndex++
-            }
+
+        while(sIndex < s.length && tIndex < t.length) {
+            if(s[sIndex] == t[tIndex]) sIndex++
             tIndex++
         }
+
         return sIndex == s.length
     }
 }
